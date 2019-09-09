@@ -1,17 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const songRouter = require('./routes/song.router.js');
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
+const movieRouter = require('./routes/movie.router');
 
 /** ---------- MIDDLEWARE ---------- **/
-app.use(bodyParser.json()); // needed for axios requests
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
-/** ---------- EXPRESS ROUTES ---------- **/
-app.use('/songs', songRouter);
+/** ---------- ROUTES ---------- **/
+app.use('/movie', movieRouter);
 
 /** ---------- START SERVER ---------- **/
-app.listen(PORT,  () => {
-    console.log('Listening on port: ', PORT);
+app.listen(port, function () {
+    console.log('Listening on port: ', port);
 });

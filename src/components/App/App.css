@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 10% auto;
 }
 
 .App-header {
@@ -15,6 +16,19 @@
 
 .App-intro {
   font-size: large;
+}
+
+.Search {
+  margin-bottom: 10%;
+}
+
+.Movies {
+  display: inline-flex;
+}
+
+.Poster {
+  display: inline-flex;
+  padding: 1em;
 }
 
 @keyframes App-logo-spin {
